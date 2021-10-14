@@ -6,10 +6,5 @@ public class Zombie extends Unit{
 		super(name, hp, atk, def, pos);
 	}
 
-	@Override
-	public void attack(Unit target) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 }
