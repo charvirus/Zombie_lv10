@@ -82,7 +82,7 @@ public class Game {
 			System.out.println("사망");
 			return false;
 		} else {
-			System.out.println("숭라");
+			System.out.println("승리");
 			return true;
 		}
 	}
@@ -104,16 +104,40 @@ public class Game {
 				System.out.println("생존했다.");
 				break;
 			}
-		}
-		map(act);
-		int sel = scan.nextInt();
-		if (sel == 1) {
-			p.setPos(p.getPos() + 1);
-			int chk = chk();
-			if (chk != -1) {
-				boolean a = fight(enemy.get(chk));
-			}
-		}
 
+			map(act);
+			int sel = scan.nextInt();
+			if (sel == 1) {
+				p.setPos(p.getPos() + 1);
+				int chk = chk();
+				if (chk != -1) {
+					boolean a = fight(enemy.get(chk));
+					if (a == false) {
+						break;
+					}
+				} else {
+					System.out.println("아무일도 일어나지 않았다.");
+				}
+				act = 1;
+			} else if (sel == 2&& act == 1 ) {
+				int rnum = ran.nextInt(40) + 20;
+				p.setHp(p.getHp() + rnum);
+				System.out.println("체력 " + rnum + " 회복");
+				act = 2;
+			} else if (sel == 3&&act == 1) {
+				int rnum = ran.nextInt(2) + 1;
+				if (rnum == 1) {
+					rnum = ran.nextInt(3) + 1;
+					p.setAtk(p.getAtk() + rnum);
+					System.out.println("공격력 " + rnum + " 증가");
+				} else if (rnum == 2) {
+					rnum = ran.nextInt(3) + 1;
+					p.setDef(p.getDef() + rnum);
+					System.out.println("방어력 " + rnum + " 증가");
+				}
+				act = 2;
+			}
+
+		}
 	}
 }
