@@ -22,6 +22,7 @@ public class Hero extends Unit {
 		}
 	}
 
+	@Override
 	public void attack(Unit target) {
 		if (target instanceof ZombieKing) {
 			if (((ZombieKing) target).getShield() > 0) {
@@ -38,11 +39,26 @@ public class Hero extends Unit {
 				}
 				System.out.println(target.getName() + "의 남는 체력 : " + target.getHp() + "(쉴드 : "
 						+ ((ZombieKing) target).getShield() + ")");
-			}else {
-				super.attack(target);
+			} else {
+				int dam = (this.getAtk() - target.getDef()) * (ran.nextInt(150) + 50) / 100;
+				if (dam <= 0) {
+					dam = 1;
+				}
+				System.out.println(this.getName() + "의 공격!");
+				System.out.println(dam + "의 대미지!");
+				target.setHp(target.getHp() - dam);
+				System.out.println(target.getName() + "의 남은 체력 : " + target.getHp());
 			}
 		}else {
-			super.attack(target);
+			int dam = (this.getAtk() - target.getDef()) * (ran.nextInt(150) + 50) / 100;
+			if (dam <= 0) {
+				dam = 1;
+			}
+			System.out.println(this.getName() + "의 공격!");
+			System.out.println(dam + "의 대미지!");
+			target.setHp(target.getHp() - dam);
+			System.out.println(target.getName() + "의 남은 체력 : " + target.getHp());
 		}
 	}
+
 }

@@ -48,16 +48,7 @@ public abstract class Unit {
 		this.def = def;
 		this.pos = pos;
 	}
-	public void attack(Unit target) {
-		int dam = (this.atk - target.def)*(ran.nextInt(150)+50)/100;
-		if(dam <= 0) {
-			dam = 1;
-		}
-		System.out.println(name+"의 공격!");
-		System.out.println(dam+"의 피해를 입힘");
-		target.setHp(target.getHp()-dam);
-		System.out.println(target.name+"의 남는 체력 : "+target.hp);
-	}
+	public abstract void attack(Unit target) ;
 	
 	public void print() {
 		System.out.println("[이름] : "+name+"  [체력] : "+hp);
