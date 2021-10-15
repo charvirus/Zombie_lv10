@@ -1,13 +1,13 @@
 package model;
 
-public class Zombie extends Unit{
+public class InheritZombie extends InheritUnit{
 
-	public Zombie(String name, int hp, int atk, int def, int pos) {
+	public InheritZombie(String name, int hp, int atk, int def, int pos) {
 		super(name, hp, atk, def, pos);
 	}
 
 	@Override
-	public void attack(Unit target) {
+	public void attack(InheritUnit target) {
 		int dam = (this.getAtk() - target.getDef()) * (ran.nextInt(150) + 50) / 100;
 		if (dam <= 0) {
 			dam = 1;

@@ -1,9 +1,9 @@
 package model;
 
-public class ZombieKing extends Unit {
+public class AbstractZombieKing extends AbstractUnit {
 	private int shield;
 
-	public ZombieKing(String name, int hp, int atk, int def, int pos, int shield) {
+	public AbstractZombieKing(String name, int hp, int atk, int def, int pos, int shield) {
 		super(name, hp, atk, def, pos);
 		this.shield = shield;
 	}
@@ -17,7 +17,7 @@ public class ZombieKing extends Unit {
 	}
 
 	@Override
-	public void attack(Unit target) {
+	public void attack(AbstractUnit target) {
 		if (ran.nextInt(100) > 74) {
 			int dam = (this.getAtk() - target.getDef()) * (ran.nextInt(150) + 50) / 100;
 			if (dam <= 0) {

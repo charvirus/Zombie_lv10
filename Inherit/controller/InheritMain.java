@@ -1,9 +1,9 @@
 package controller;
 
-public class Main {
+public class InheritMain {
 
 	public static void main(String[] args) {
-		Game.getInstance().run();
+		InheritGame.getInstance().run();
 	}
 
 }

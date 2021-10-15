@@ -1,9 +1,9 @@
 package model;
 
-public class Hero extends Unit {
+public class InheritHero extends InheritUnit {
 	private int cnt = 3;
 
-	public Hero(String name, int hp, int atk, int def, int pos) {
+	public InheritHero(String name, int hp, int atk, int def, int pos) {
 		super(name, hp, atk, def, pos);
 	}
 
@@ -23,22 +23,22 @@ public class Hero extends Unit {
 	}
 
 	@Override
-	public void attack(Unit target) {
-		if (target instanceof ZombieKing) {
-			if (((ZombieKing) target).getShield() > 0) {
+	public void attack(InheritUnit target) {
+		if (target instanceof InheritZombieKing) {
+			if (((InheritZombieKing) target).getShield() > 0) {
 				int dam = (this.getAtk() - target.getDef()) * (ran.nextInt(150) + 50) / 100;
 				if (dam <= 0) {
 					dam = 1;
 				}
 				System.out.println(getName() + "ÀÇ °ø°Ý");
 				System.out.println(dam + "ÀÇ ÇÇÇØ ÀÔÈû");
-				((ZombieKing) target).setShield(((ZombieKing) target).getShield() - dam);
-				if (((ZombieKing) target).getShield() <= 0) {
+				((InheritZombieKing) target).setShield(((InheritZombieKing) target).getShield() - dam);
+				if (((InheritZombieKing) target).getShield() <= 0) {
 					System.out.println("½¯µå°¡ ÆÄ±« µÆ´Ù.");
-					((ZombieKing) target).setShield(0);
+					((InheritZombieKing) target).setShield(0);
 				}
 				System.out.println(target.getName() + "ÀÇ ³²´Â Ã¼·Â : " + target.getHp() + "(½¯µå : "
-						+ ((ZombieKing) target).getShield() + ")");
+						+ ((InheritZombieKing) target).getShield() + ")");
 			} else {
 				int dam = (this.getAtk() - target.getDef()) * (ran.nextInt(150) + 50) / 100;
 				if (dam <= 0) {

@@ -2,7 +2,7 @@ package model;
 
 import java.util.Random;
 
-public abstract class Unit {
+public abstract class InheritUnit {
 	Random ran = new Random();
 	private String name;
 	private int hp;
@@ -41,14 +41,14 @@ public abstract class Unit {
 		this.pos = pos;
 	}
 	
-	Unit(String name,int hp,int atk,int def,int pos){
+	InheritUnit(String name,int hp,int atk,int def,int pos){
 		this.name = name;
 		this.hp = hp;
 		this.atk = atk;
 		this.def = def;
 		this.pos = pos;
 	}
-	public abstract void attack(Unit target) ;
+	public abstract void attack(InheritUnit target) ;
 	
 	public void print() {
 		System.out.println("[이름] : "+name+"  [체력] : "+hp);
